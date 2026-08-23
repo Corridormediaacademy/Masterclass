@@ -220,7 +220,7 @@ src="https://www.facebook.com/tr?id=585797091259852&ev=PageView&noscript=1"
   </ul>
 
   <div class="cta-wrap">
-    <a href="https://chat.whatsapp.com/BA4K3rx2WRP6yyvUhwtZq2?s=cl&p=a&mlu=4" class="cta" onclick="fbq('track', 'Lead');">Join the free class now</a>
+    <a href="https://chat.whatsapp.com/BA4K3rx2WRP6yyvUhwtZq2?s=cl&p=a&mlu=4" class="cta" id="cta-button">Join the free class now</a>
     <p class="cta-note">Tap to join the <strong>free</strong> WhatsApp group — takes 10 seconds</p>
     <div class="toast" id="toast">
       <span class="flame">🔥</span>
@@ -230,6 +230,17 @@ src="https://www.facebook.com/tr?id=585797091259852&ev=PageView&noscript=1"
 </div>
 
 <script>
+  document.getElementById('cta-button').addEventListener('click', function(e){
+  e.preventDefault();
+  var destination = this.href;
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead');
+  }
+  setTimeout(function(){
+    window.location.href = destination;
+  }, 300);
+});
+  
   const names = [
     ["David", "Port Harcourt"],
     ["Amaka", "Lagos"],
